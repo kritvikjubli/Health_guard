@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />  
+    <script defer src="https://pyscript.net/alpha/pyscript.js"></script>  
+</head>
+<body>
+    <py-env>
+        - pandas
+        - scikit-learn
+        - paths:
+            - ./diabetes.py
+            - ./diabetes.csv
+      </py-env>
+      <nav class="nav bg-black text-slate-300 w-screen fixed"> 
+        <div class="flex items-center justify-between h-16 ">
+                <h1 class="font-semibold text-2xl ml-16 hover:font-bold">
+                    Health Guard
+                </h1>
+            <div class="flex items-center ">
+                    <ul id="menu" class=" space-x-10 text-xl mr-20 " >
+                        <a class="hover:font-extrabold cursor-pointer" href="./index.html #home">Home</a>
+                        <a class="hover:font-extrabold cursor-pointer " href="./index.html #about">About</a>
+                        <a class="hover:font-extrabold cursor-pointer" href="./heartpred.html">Heart Predict</a>
+                        <a class="hover:font-extrabold cursor-pointer" href="./dibatiesrisk.html">Diabetes Predict</a>
+                    </ul>
+            </div>
+        </div>
+    </nav>
+
+  
+    <div id="predict" class="bg-gradient-to-br from-slate-800 via-slate-900 to-black w-screen h-screen text-slate-300">
+        <div class="pt-24 space-y-8">
+            <div class="py-8">
+                <h1 class="text-4xl font-extrabold text-center "><u>Diabetes Risk Prediction</u></h1>
+            </div>
+            <div>
+                <py-script src="./diabetes.py" />
+            </div>
+            <form class="grid grid-cols-4 gap-4 px-10 space-y-2">
+                <div>
+                    <label for="preg">Pregnancies:</label><br>
+                    <input type="number" id="preg" value="2" required><br>
+                </div>
+                
+                <div>
+                    <label for="glu">Glucose (0 - 200):</label><br>
+                    <input type="number" id="glu" value="120" required><br>
+                </div>
+                
+                <div>
+                    <label for="bp">Blood Pressure:</label><br>
+                    <input type="number" id="bp" value="3" required><br>
+                </div>
+                
+                <div>
+                    <label for="skin">Skin thickness(0 - 99)</label><br>
+                    <input type="number" id="skin" value="40" required><br>
+                </div>
+
+                <div>
+                    <label for="ins">Insulin (0 - 846):</label><br>
+                    <input type="number" id="ins" value="160" required><br>
+                </div>
+
+                <div>
+                    <label for="bmi">Enter BMI:</label><br>
+                    <input type="number" id="bmi" value="26" required><br>
+                </div>
+
+                <div>
+                    <label for="fun">Diabetes predigee Function (0.08 - 2.24):</label><br>
+                    <input type="number" id="fun" value="1.2" required><br>
+                </div>
+
+                <div>
+                    <label for="age">Enter Age:</label><br>
+                    <input type="number" id="age" value="40" required><br>
+                </div>
+                    
+               
+                    
+                <button type="button" class="bg-purple-700 border-4  border-purple-950 active:border-sky-200  items-center text-lg font-bold px-3 py-1 rounded-lg" id="button" pys-onClick="on_click">Predict</button>
+        </form>
+            <div id="result" class="text-3xl font-extrabold text-center pt-16">
+                
+            </div>
+            <div id="accuracy" class="text-3xl font-extrabold text-center pt-16">
+        
+            </div>
+        </div>
+        </div>
+</body>
+</html>

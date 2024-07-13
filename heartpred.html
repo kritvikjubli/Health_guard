@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />  
+    <script defer src="https://pyscript.net/alpha/pyscript.js"></script>  
+</head>
+<body>
+    <py-env>
+        - pandas
+        - scikit-learn
+        - paths:
+            - ./heart.py
+            - ./heart.csv
+      </py-env>
+  
+      <nav class="nav bg-black text-slate-300 w-screen fixed"> 
+        <div class="flex items-center justify-between h-16 ">
+                <h1 class="font-semibold text-2xl ml-16 hover:font-bold">
+                    Health Guard
+                </h1>
+            <div class="flex items-center ">
+                    <ul id="menu" class=" space-x-10 text-xl mr-20 " >
+                        <a class="hover:font-extrabold cursor-pointer" href="./index.html #home">Home</a>
+                        <a class="hover:font-extrabold cursor-pointer " href="./index.html #about">About</a>
+                        <a class="hover:font-extrabold cursor-pointer" href="./heartpred.html">Heart Predict</a>
+                        <a class="hover:font-extrabold cursor-pointer" href="./dibatiesrisk.html">Diabetes Predict</a>
+                    </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <div id="predict" class="bg-gradient-to-br from-slate-800 via-slate-900 to-black w-screen h-screen text-slate-300">
+        <div class="pt-24 space-y-8">
+            <div class="py-8">
+                <h1 class="text-4xl font-extrabold text-center "><u>Heart disease Prediction</u></h1>
+            </div>
+            <div>
+                <py-script src="./heart.py" />
+            </div>
+            <form class="grid grid-cols-4 gap-4 px-10 space-y-2">
+                <div>
+                    <label for="age">age:</label><br>
+                    <input type="number" id="age" value="19" required><br>
+                </div>
+                
+                <div>
+                    <label for="sex">sex (0 for female, 1 for male):</label><br>
+                    <input type="number" id="sex" value="1" required><br>
+                </div>
+                
+                <div>
+                    <label for="chest_pain">Enter chest pain type (0-3):</label><br>
+                    <input type="number" id="chest_pain" value="3" required><br>
+                </div>
+                
+                <div>
+                    <label for="tretbps">Enter resting blood pressure:</label><br>
+                    <input type="number" id="trestbps" value="160" required><br>
+                </div>
+                    
+                <div>
+                    <label for="chol">Enter serum cholesterol:</label><br>
+                    <input type="number" id="chol" value="218" required><br> 
+                </div>
+                
+                <div>
+                    <label for="fbs">Enter fasting blood sugar level (1 for true, 0 for false):</label><br>
+                    <input type="number" id="fbs" value="1" required><br>
+                </div>
+                
+                <div>
+                    <label for="restecg">Enter resting electrocardiographic results (0-2): </label><br>
+                    <input type="number" id="restecg" value="2" required><br>
+                </div>
+                
+                <div>
+                    <label for="thalach">Enter maximum heart rate achieved:</label><br>
+                    <input type="number" id="thalach" value="160" required><br>
+                </div>
+                
+                <div>
+                    <label for="exang">Enter exercise induced angina (1 for yes, 0 for no): </label><br>
+                    <input type="number" id="exang" value="1" required><br>
+                </div>
+                    
+                <div>
+                    <label for="oldpeak">Enter ST depression induced by exercise:</label><br>
+                    <input type="number" id="oldpeak" value="1.8" required><br>
+                </div>
+                
+                <div>
+                    <label for="slope">Enter slope of the peak exercise ST segment (0-2):</label><br>
+                    <input type="number" id="slope" value="2" required><br>
+                </div>
+                
+                <div>
+                    <label for="ca">Enter number of major vessels colored by fluoroscopy (0-3):</label><br>
+                    <input type="number" id="ca" value="2" required><br>
+                </div>
+                
+                <div>
+                    <label for="thal">Enter thalassemia type (1-3):</label><br>
+                    <input type="number" id="thal" value="3" required><br>
+                </div>
+                <!-- <div>
+                    <label for="email">Enter email</label><br>
+                    <input type="email" id="email" value="" required><br>
+                </div> -->
+                    
+                <button type="button" class="bg-purple-700 border-4  border-purple-950 active:border-sky-200  items-center text-lg font-bold px-3 py-1 rounded-lg" id="button" pys-onClick="on_click">Predict</button>
+        </form>
+            <div id="result" class="text-3xl font-extrabold text-center pt-16">
+                
+            </div>
+            <div id="accuracy" class="text-3xl font-extrabold text-center pt-16">
+        
+            </div>
+        </div>
+        </div>
+</body>
+</html>
